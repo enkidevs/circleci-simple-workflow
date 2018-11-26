@@ -1,0 +1,67 @@
+version: 2
+
+jobs:
+  install:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: install
+          command: |
+            echo "install started";
+            sleep 5;
+            echo "install finished";
+
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: build
+          command: |
+            echo "build started";
+            sleep 5;
+            echo "build finished";
+
+  lint:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: lint
+          command: |
+            echo "lint started";
+            sleep 5;
+            echo "lint finished";
+
+  deploy:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: deploy
+          command: |
+            echo "deploy started";
+            sleep 5;
+            echo "deploy finished";
+
+workflows:
+  version: 2
+  install_build_lint_deploy:
+    jobs:
+      - install
+      - build:
+          requires:
+            - install
+      - lint:
+          requires:
+            - install
+      - deploy:
+          requires:
+            - build
+            - lint
+          filters:
+            branches:
+              only:
+                - develop
+                - master
