@@ -9,7 +9,7 @@ jobs:
           name: install
           command: |
             echo "install started";
-            sleep 5;
+            sleep 4;
             echo "install finished";
 
   build:
@@ -20,7 +20,7 @@ jobs:
           name: build
           command: |
             echo "build started";
-            sleep 5;
+            sleep 4;
             echo "build finished";
 
   lint:
@@ -31,7 +31,7 @@ jobs:
           name: lint
           command: |
             echo "lint started";
-            sleep 5;
+            sleep 4;
             echo "lint finished";
 
   deploy:
@@ -42,7 +42,7 @@ jobs:
           name: deploy
           command: |
             echo "deploy started";
-            sleep 5;
+            sleep 4;
             echo "deploy finished";
 
 workflows:
